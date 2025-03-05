@@ -258,10 +258,6 @@
                     :options="
                           [
                           {label: 'Cash', value: 'Cash'},
-                          // {label: 'credit card', value: 'credit card'},
-                          // {label: 'TPE', value: 'tpe'},
-                          // {label: 'cheque', value: 'cheque'},
-                          // {label: 'Western Union', value: 'Western Union'},
                           {label: 'Bank Transfer', value: 'bank transfer'},
                           {label: 'Pos', value: 'pos'},
                           ]"
@@ -358,12 +354,8 @@
                     :options="
                           [
                           {label: 'Cash', value: 'Cash'},
-                          {label: 'credit card', value: 'credit card'},
-                          {label: 'TPE', value: 'tpe'},
-                          {label: 'cheque', value: 'cheque'},
-                          {label: 'Western Union', value: 'Western Union'},
-                          {label: 'bank transfer', value: 'bank transfer'},
-                          {label: 'other', value: 'other'},
+                          {label: 'Bank Transfer', value: 'bank transfer'},
+                          {label: 'Pos', value: 'pos'},
                           ]"
                   ></v-select>
                   <b-form-invalid-feedback>{{ errors[0] }}</b-form-invalid-feedback>

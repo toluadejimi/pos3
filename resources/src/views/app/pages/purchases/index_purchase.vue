@@ -16,7 +16,7 @@
         placeholder: $t('Search_this_table'),
         enabled: true,
       }"
-        :select-options="{ 
+        :select-options="{
           enabled: true ,
           clearSelectionText: '',
         }"
@@ -417,13 +417,9 @@
                     :placeholder="$t('PleaseSelect')"
                     :options="
                           [
-                          {label: 'Cash', value: 'Cash'},
-                          {label: 'credit card', value: 'credit card'},
-                           {label: 'TPE', value: 'tpe'},
-                          {label: 'cheque', value: 'cheque'},
-                          {label: 'Western Union', value: 'Western Union'},
-                          {label: 'bank transfer', value: 'bank transfer'},
-                          {label: 'other', value: 'other'},
+                           {label: 'Cash', value: 'Cash'},
+                          {label: 'Bank Transfer', value: 'bank transfer'},
+                          {label: 'Pos', value: 'pos'},
                           ]"
                   ></v-select>
                   <b-form-invalid-feedback>{{ errors[0] }}</b-form-invalid-feedback>
@@ -499,7 +495,7 @@
                 </b-form-group>
               </validation-provider>
             </b-col>
-          
+
             <!-- Note -->
             <b-col lg="6" md="6" sm="12">
               <b-form-group :label="$t('Note')">
@@ -773,7 +769,7 @@ export default {
           this.$t("Warning")
         );
         this.facture.montant = 0;
-      } 
+      }
       else if (this.facture.montant > this.due) {
         this.makeToast(
           "warning",
@@ -789,7 +785,7 @@ export default {
     Verified_Received_Amount() {
       if (isNaN(this.facture.received_amount)) {
         this.facture.received_amount = 0;
-      } 
+      }
     },
 
 
@@ -858,7 +854,7 @@ export default {
         foot: footer,
         startY: 70,
         didDrawPage: (data) => {
-          pdf.text("Purchases List", 40, 25);        
+          pdf.text("Purchases List", 40, 25);
         }
       });
 
@@ -889,7 +885,7 @@ export default {
 
           // Open the WhatsApp URL in a new window
           window.open(whatsappUrl, '_blank');
-          
+
         })
         .catch(error => {
           // Complete the animation of the  progress bar.
@@ -903,7 +899,7 @@ export default {
       // Start the progress bar.
       NProgress.start();
       NProgress.set(0.1);
-     
+
        axios
         .get("purchase_pdf/" + id, {
           responseType: "blob", // important
@@ -932,7 +928,7 @@ export default {
       // Start the progress bar.
       NProgress.start();
       NProgress.set(0.1);
-     
+
        axios
         .get("payment_purchase_pdf/" + id, {
           responseType: "blob", // important
@@ -1197,7 +1193,7 @@ export default {
     },
 
      //---------SMS notification
-     
+
      Purchase_SMS(id) {
       // Start the progress bar.
       NProgress.start();
@@ -1343,7 +1339,7 @@ export default {
       this.paymentProcessing = true;
       NProgress.start();
       NProgress.set(0.1);
-     
+
         axios
           .put("payment_purchase/" + this.facture.id, {
             purchase_id: this.purchase.id,
@@ -1370,7 +1366,7 @@ export default {
           });
     },
 
-  
+
 
     //------------------------------------ Remove Payment -------------------------------\\
     Remove_Payment(id) {
@@ -1453,7 +1449,7 @@ export default {
     });
 
     Fire.$on("Update_Facture_purchase", () => {
-      
+
       setTimeout(() => {
         NProgress.done();
         this.$bvModal.hide("Add_Payment");
