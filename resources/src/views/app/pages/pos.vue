@@ -1134,8 +1134,8 @@
                           :options="
                             [
                             {label: 'Cash', value: 'Cash'},
-                           {label: 'Bank Transfer', value: 'bank transfer'},
-                           {label: 'Pos', value: 'pos'},
+                            {label: 'Bank Transfer', value: 'bank transfer'},
+                            {label: 'Pos', value: 'pos'},
                             ]"
                         ></v-select>
                         <b-form-invalid-feedback>{{ errors[0] }}</b-form-invalid-feedback>
